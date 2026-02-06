@@ -41,3 +41,11 @@ body {
 
 #roll-btn:active { transform: translateY(4px); box-shadow: none; }
 #msgText { color: gold; margin-top: 15px; font-weight: bold; }
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 'APNI_APP_ID_YAHAN_LIKHEIN', // Jo number copy kiya wo yahan daalein
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v18.0'
+    });
+};
