@@ -37,6 +37,32 @@ body {
     border: none; padding: 15px 40px; border-radius: 30px;
     font-size: 22px; font-weight: bold; color: #000; cursor: pointer;
     box-shadow: 0 5px 0 #555;
+    /* Gotiyon ka design */
+.token {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    position: absolute;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+.red { background: radial-gradient(circle, #ff5f6d, #ff4757); top: 50px; left: 50px; }
+.blue { background: radial-gradient(circle, #2193b0, #1e90ff); top: 50px; right: 50px; }
+
+/* Goti jab chalne ke liye tayyar ho (Animation) */
+.active-token {
+    animation: bounce 0.5s infinite alternate;
+    border: 3px solid gold;
+}
+
+@keyframes bounce {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+}
 }
 
 #roll-btn:active { transform: translateY(4px); box-shadow: none; }
