@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Santhu Royal Ludo Arena</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <img src="banner.jpg" alt="Ludo Arena" class="game-logo">
+        </div>
 
+        <div class="board-wrapper">
+            <div id="ludo-board">
+                <div class="corner red-home"></div>
+                <div class="corner blue-home"></div>
+                <div class="corner green-home"></div>
+                <div class="corner yellow-home"></div>
+                <div class="center-square">👑</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div id="dice-box">
+                <div id="dice">⚀</div>
+            </div>
+            <button id="roll-btn" onclick="playGame()">ROLL DICE</button>
+            <p id="msgText">Santhu, Baari Aapki Hai!</p>
+        </div>
+    </div>
+    
+    <audio id="diceRollSound" src="https://www.soundjay.com/buttons/button-37.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
