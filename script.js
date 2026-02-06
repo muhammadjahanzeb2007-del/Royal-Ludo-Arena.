@@ -45,6 +45,75 @@ window.fbAsyncInit = function() {
     FB.init({
       appId      : 'APNI_APP_ID_YAHAN_LIKHEIN', // Jo number copy kiya wo yahan daalein
       cookie     : true,
+        let gameData = {
+    currentDice: 0,
+    turn: 'red',
+    redPos: 0,
+    bluePos: 0,
+    isRolling: false
+};
+
+function playGame() {
+    if(gameData.isRolling) return;
+    
+    gameData.isRolling = true;
+    let dice = document.getElementById('dice');
+    let sound = document.getElementById('diceRollSound');
+    if(sound) sound.play();
+
+    // Dice Roll Animation
+    dice.style.transform = "rotate(720deg)";
+    
+    setTimeout(() => {
+        gameData.currentDice = Math.floor(Math.random() * 6) + 1;
+        dice.style.transform = "rotate(0deg)";
+        dice.innerText = getDiceIcon(gameData.currentDice);
+        
+        checkMovePossibility();
+        gameData.isRolling = false;
+    }, 400);
+}
+
+function handleTokenClick(color) {
+    if(gameData.turn !== color) return alert("Abhi aapki baari nahi hai!");
+    if(gameData.currentDice === 0) return;
+
+    let token = document.getElementById(color + '-token');
+    
+    // Jail se nikalne ka rule
+    if(gameData[color + 'Pos'] === 0) {
+        if(gameData.currentDice === 6) {
+            gameData[color + 'Pos'] = 1;
+            updateTokenUI(color);
+            alert("Mubarak ho! Goti bahar nikal gayi.");
+        } else {
+            alert("Goti nikalne ke liye 6 chahiye!");
+            switchTurn();
+        }
+    } else {
+        // Goti aage badhana
+        gameData[color + 'Pos'] += gameData.currentDice;
+        updateTokenUI(color);
+        switchTurn();
+    }
+    gameData.currentDice = 0;
+}
+
+function updateTokenUI(color) {
+    let token = document.getElementById(color + '-token');
+    let pos = gameData[color + 'Pos'];
+    // Goti ko raste par move karna (Simple linear move)
+    token.style.left = (pos * 30) + "px"; 
+}
+
+function switchTurn() {
+    gameData.turn = (gameData.turn === 'red') ? 'blue' : 'red';
+    document.getElementById('msgText').innerText = gameData.turn.toUpperCase() + " ki baari hai!";
+}
+
+function getDiceIcon(num) {
+    return ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'][num-1];
+}
       xfbml      : true,
       version    : 'v18.0'
     });
