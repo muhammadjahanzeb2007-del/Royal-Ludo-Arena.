@@ -1,4 +1,22 @@
-let gameStatus = {
+
+// Firebase App aur Database ko jorne ka code
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+// Aapka Config Code jo screen par dikh raha hai
+const firebaseConfig = {
+  apiKey: "AIzaSyBqdiQPDwYE1TVcDj8UBJnn1wgsHL4Iqb4",
+  authDomain: "santhu-royal-ludo-arena.firebaseapp.com",
+  projectId: "santhu-royal-ludo-arena",
+  storageBucket: "santhu-royal-ludo-arena.appspot.com",
+  messagingSenderId: "242502309754",
+  appId: "1:242502309754:web:c24984ce1d1b736a6ce8c3",
+  measurementId: "G-1YD9JK5493"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);let gameStatus = {
     diceValue: 0,
     redPos: 0, // 0 matlab Jail mein hai
     bluePos: 0,
