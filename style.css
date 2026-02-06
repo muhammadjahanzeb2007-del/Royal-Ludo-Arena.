@@ -2,23 +2,18 @@
 body { 
     background: radial-gradient(circle, #2c3e50, #000);
     height: 100vh; display: flex; justify-content: center; align-items: center;
-    font-family: 'Arial', sans-serif; overflow: hidden;
+    font-family: 'Arial', sans-serif;
 }
 
-.app-container { width: 100%; max-width: 450px; text-align: center; }
-
-.game-logo { 
-    width: 80%; border-radius: 15px; border: 3px solid #ffd700;
-    margin-bottom: 10px; box-shadow: 0 0 20px #ffd70055;
-}
+.app-container { width: 100%; max-width: 400px; text-align: center; }
 
 #ludo-board {
-    width: 320px; height: 320px; background: #fff; margin: 0 auto;
-    border: 10px solid #555; display: grid; 
+    width: 300px; height: 300px; background: #fff; margin: 20px auto;
+    border: 8px solid #444; display: grid; 
     grid-template-columns: repeat(2, 1fr); position: relative;
 }
 
-.corner { border: 1px solid #000; }
+.home { border: 1px solid #000; position: relative; height: 150px; }
 .red-home { background: #ff4757; }
 .blue-home { background: #1e90ff; }
 .green-home { background: #2ed573; }
@@ -26,44 +21,23 @@ body {
 
 .center-square {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 60px; height: 60px; background: gold; border: 2px solid #000;
-    display: flex; align-items: center; justify-content: center; font-size: 30px;
+    width: 50px; height: 50px; background: gold; border: 2px solid #000;
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
 }
 
-#dice-box { font-size: 80px; color: #fff; margin: 20px; }
-
-#roll-btn {
-    background: linear-gradient(to bottom, #ffd700, #b8860b);
-    border: none; padding: 15px 40px; border-radius: 30px;
-    font-size: 22px; font-weight: bold; color: #000; cursor: pointer;
-    box-shadow: 0 5px 0 #555;
-    /* Gotiyon ka design */
+/* TOKEN DESIGN */
 .token {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    position: absolute;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 10;
+    width: 35px; height: 35px; border-radius: 50%; border: 3px solid white;
+    position: absolute; cursor: pointer; transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 10;
 }
+.red { background: #ff4757; top: 60px; left: 60px; }
+.blue { background: #1e90ff; top: 60px; left: 60px; }
 
-.red { background: radial-gradient(circle, #ff5f6d, #ff4757); top: 50px; left: 50px; }
-.blue { background: radial-gradient(circle, #2193b0, #1e90ff); top: 50px; right: 50px; }
-
-/* Goti jab chalne ke liye tayyar ho (Animation) */
-.active-token {
-    animation: bounce 0.5s infinite alternate;
-    border: 3px solid gold;
+/* DICE & BUTTON */
+#dice-box { font-size: 70px; color: #fff; margin: 10px; }
+#roll-btn {
+    background: linear-gradient(#ffd700, #b8860b);
+    padding: 12px 30px; border-radius: 25px; font-weight: bold; border: none; cursor: pointer;
 }
-
-@keyframes bounce {
-    from { transform: scale(1); }
-    to { transform: scale(1.2); }
-}
-}
-
-#roll-btn:active { transform: translateY(4px); box-shadow: none; }
-#msgText { color: gold; margin-top: 15px; font-weight: bold; }
+#msgText { color: gold; margin-top: 10px; font-size: 14px; }
