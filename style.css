@@ -1,43 +1,11 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background: radial-gradient(circle, #2c3e50, #000);
-    height: 100vh; display: flex; justify-content: center; align-items: center;
-    font-family: 'Arial', sans-serif;
-}
-
-.app-container { width: 100%; max-width: 400px; text-align: center; }
-
 #ludo-board {
-    width: 300px; height: 300px; background: #fff; margin: 20px auto;
-    border: 8px solid #444; display: grid; 
-    grid-template-columns: repeat(2, 1fr); position: relative;
+    width: 95vw; /* Mobile screen par bada dikhega */
+    height: 95vw;
+    max-width: 450px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    border: 5px solid gold;
+    background-color: white;
 }
-
-.home { border: 1px solid #000; position: relative; height: 150px; }
-.red-home { background: #ff4757; }
-.blue-home { background: #1e90ff; }
-.green-home { background: #2ed573; }
-.yellow-home { background: #ffa502; }
-
-.center-square {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 50px; height: 50px; background: gold; border: 2px solid #000;
-    display: flex; align-items: center; justify-content: center; font-size: 24px;
-}
-
-/* TOKEN DESIGN */
-.token {
-    width: 35px; height: 35px; border-radius: 50%; border: 3px solid white;
-    position: absolute; cursor: pointer; transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 10;
-}
-.red { background: #ff4757; top: 60px; left: 60px; }
-.blue { background: #1e90ff; top: 60px; left: 60px; }
-
-/* DICE & BUTTON */
-#dice-box { font-size: 70px; color: #fff; margin: 10px; }
-#roll-btn {
-    background: linear-gradient(#ffd700, #b8860b);
-    padding: 12px 30px; border-radius: 25px; font-weight: bold; border: none; cursor: pointer;
-}
-#msgText { color: gold; margin-top: 10px; font-size: 14px; }
